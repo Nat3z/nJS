@@ -37,6 +37,14 @@ class tagbased {
             element[index].parentNode.removeChild(element[index]);
         }
     }
+    hide() {
+        var element = document.getElementsByTagName(this.obj), index;
+
+        for (index = element.length - 1; index >= 0; index--) {
+            element[index].parentNode.style.visibility = "hidden";
+            element[index].parentNode.removeChild(element[index]);
+        }
+    }
 }
 
 class idbased {
@@ -84,14 +92,27 @@ class idbased {
      */
     show() {
         document.getElementById(this.obj).style.visibility = "visible";
-}
+    }
 }
 class body {
     /**
-     * Adds content to the Body : Body |
+     * Adds content to the Body : Body 
      * @param HTML 
      */
     add(contents) {
         document.body.innerHTML += contents;
+    }
+    /**
+     * Create a Static-based PHP (Recommended only for Github Pages)
+     * Credits:
+     * https://stackoverflow.com/questions/901115/how-can-i-get-query-string-values-in-javascript/901144#901144
+     */
+    getUrlValues(name, url = window.location.href) {
+        name = name.replace(/[\[\]]/g, '\\$&');
+        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, ' '));
     }
 }
