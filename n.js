@@ -1,3 +1,12 @@
+console.log(`
+███╗░░██╗░░░░░██╗░██████╗\n
+████╗░██║░░░░░██║██╔════╝\n
+██╔██╗██║░░░░░██║╚█████╗░\n
+██║╚████║██╗░░██║░╚═══██╗\n
+██║░╚███║╚█████╔╝██████╔╝\n
+╚═╝░░╚══╝░╚════╝░╚═════╝░\n
+`);
+console.error(`The Console is VERY sensitive to any changes. \nIf this website is web-based/login-based, please do not share these logs to anyone.`);
 /**
  * The Main Function for NJS 
  * @param Brackets Add '[]' around text to label it as an id
@@ -60,6 +69,13 @@ class idbased {
      */
     del() {
         document.getElementById(this.obj).remove();
+    }
+    /**
+     * Adds content to the Body : Body 
+     * @param HTML
+     */
+    add(HTML) {
+        document.getElementById(this.obj).innerHTML += HTML;
     }
     /**
      * Resets The Value of Object (Only For Inputs) : IDs
